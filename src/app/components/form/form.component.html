@@ -1,0 +1,17 @@
+<form #ngForm="ngForm" (ngSubmit)="submit(ngForm)" autocomplete="off">
+    <input [ngModel]="this.form.name" name="name" type="text" required #name> 
+    <div *ngIf="name.invalid">*This field is required</div>
+    <input [ngModel]="this.form.keyWords" name="keyWords" type="text" required> 
+    <input [ngModel]="this.form.bidAmount" name="bidAmount" type="text" required > 
+    <input [ngModel]="this.form.campainFound" name="campainFound" type="text" required > 
+    <input [ngModel]="this.form.status" name="status" type="checkbox"> 
+    <!-- <label for="status">status on/off</label> -->
+    <select [ngModel] name="town">
+        <option value="">-- Select town --</option>
+        <option *ngFor="let city of cities; let i=index" 
+         [value]="i">{{ cities[i] }} </option>
+    </select>
+    <input [ngModel]="this.form.radius" name="radius" type="text"> 
+    <button type="submit">ADD</button>
+    <button type="reset" >RESET</button>
+</form>

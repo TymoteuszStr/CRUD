@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "CRUD"
+  "defaultProject": "CRUD",
+  "cli": {
+    "analytics": "caf207da-dcdc-4508-8294-f700efe6295e"
+  }
 }
