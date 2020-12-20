@@ -1,3 +1,27 @@
-input{
-    min-width:150px;
+.input{
+    width:250px;
+    height: 40px;
+    box-shadow: none;
+    border: 1px solid grey;
+    display: block;
+    box-shadow: none !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding: 3px 8px;
+    margin:10px;
+
+        &::placeholder{
+            color:#303030;
+            opacity: .6;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+    
+}
+
+.select{
+    @extend .input;
+    width:268px;
+    height: 51px;
+    
 }

@@ -2,7 +2,8 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angu
 import { NgForm } from '@angular/forms';
 import { cities } from '../cities'
 import { keyWords } from '../keyWords'
- 
+import { NgOption } from '@ng-select/ng-select';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -13,19 +14,22 @@ export class FormComponent implements OnInit {
 
   constructor() { }
 
-
   cities = [...cities]
   keyWords = [...keyWords]
+  status =[
+    'ON',
+    'OFF'
+  ]
   @Input()
-  form = 
+  form:Data = 
   {
-    name: '',
-    keyWords: [''],
-    bidAmount: 0,
-    campainFound: 0,
-    status: false,
-    town: '',
-    radius: '',
+    name: null,
+    keyWords: null,
+    bidAmount: null,
+    campainFound: null,
+    status: null,
+    town: null,
+    radius: null
   }
 
   @Output()
@@ -33,13 +37,27 @@ export class FormComponent implements OnInit {
 
   submit(currentFormInputs:NgForm):void{
     this.campainAdded.emit(currentFormInputs.value)
+    console.log(currentFormInputs.value)
   }
 
-  // @ViewChild('ngForm', {read: NgForm})
-  // ngForm!: NgForm
-  // reset = () => { this.ngForm.reset(this.form) }
-
+  
+  selectedKeyWords = [];
+  
+  onAdd = ($event: any): void => {
+    this.form.keyWords.push($event);
+    console.log(this.selectedKeyWords);
+  }
+  
   ngOnInit(): void {
   }
 
+}
+interface Data {
+  name: string,
+  keyWords: string[],
+  bidAmount:string ,
+  campainFound: string
+  status: boolean,
+  town?: string,
+  radius: string,
 }

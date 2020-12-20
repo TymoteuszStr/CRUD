@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.ng-select.custom {
+
+
+    .ng-select-container {
+        position: absolute;
+        width:255px !important;
+        height: 35px !important;
+        top:0;
+        left: 0;
+        font-family: 'Roboto', sans-serif;
+        width:150px;
+        height: 35px;
+        background-color: white;
+        margin-left:8px;
+        margin-top:6px;
+        border:none;
+        box-shadow: none;
+    
+
+
+      .ng-value-container {
+        color: black;
+        padding: 0;
+
+  
+        .ng-placeholder {
+          font-family: 'Roboto', sans-serif;
+          font-weight: 400 !important;
+          font-size: 1rem;
+          color: #303030;
+          opacity: .6;
+          padding: 0;
+
+
+        }
+      }
+    }
+  }

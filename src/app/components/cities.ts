@@ -316,5 +316,5 @@ export  const cities=
  "Winston–Salem",
  "Woodbridge",
  "Worcester",
- "Yonkers",
+ "Yonkers"
 ]

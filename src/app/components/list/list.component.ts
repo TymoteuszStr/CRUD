@@ -16,13 +16,13 @@ export class ListComponent implements OnInit {
   @Input()
   item = 
   {
-    name: '',
-    keyWords: [''],
-    bidAmount: 0,
-    campainFound: 0,
-    status: false,
-    town: '',
-    radius: ''
+    name: null,
+    keyWords: null,
+    bidAmount: null,
+    campainFound: null,
+    status: true,
+    town: null,
+    radius: null
   }
 
  

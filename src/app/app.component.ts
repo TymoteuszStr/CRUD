@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'CRUD';
-  editingIntex:any = null;
+  editingIntex:number = null;
 
   
   
@@ -17,65 +17,45 @@ export class AppComponent {
   }
   
 
-  editCampain = (e:any) => {
+  editCampain = (e:any):void => {
       this.ListOfCampain.splice(this.editingIntex,1,e)
       this.editingIntex = null
   }
-  deleteCampain = (e:any) => {
+  deleteCampain = (e:number):void => {
       this.ListOfCampain.splice(e,1)
       this.editingIntex = null
   }
 
-  submitBtnClicked = (e:any):void =>{
+  submitBtnClicked = (e:Data):void =>{
     (this.editingIntex === null)? this.addCampain(e) : this.editCampain(e) 
   }
   
-  setCampainEditable = (editingCampain:any) =>{
+  setCampainEditable = (editingCampain:any):void =>{
     this.CurrentFormInputs = (editingCampain[0])
     this.editingIntex=editingCampain[1]
   }
 
-  CurrentFormInputs =
+  CurrentFormInputs:Data =
   {
-    name: '',
-    keyWords: [''],
-    bidAmount: '',
-    campainFound: '',
-    status: false,
-    town: '',
-    radius: '',
+    name: null,
+    keyWords: null,
+    bidAmount: null,
+    campainFound: null,
+    status: null,
+    town: null,
+    radius: null,
   }
-
-  
   ListOfCampain = [
-      {
-        name: 'Tymek',
-        keyWords: ['lol','lol2'],
-        bidAmount:'',
-        campainFound: '',
-        status: false,
-        town: 'Jaworzno',
-        radius: '10000',
-      },
-      {
-        name: 'Basia',
-        keyWords: ['rolf','rolf2'],
-        bidAmount:  124,
-        campainFound: 234353453,
-        status: true,
-        town: 'Krakow',
-        radius: '12'
-     }
-    ]
+  ]
  
 }
 
-// interface Data {
-//   name: string,
-//   keyWords: string[],
-//   bidAmount:string ,
-//   campainFound: string
-//   status: boolean,
-//   town?: string,
-//   radius: string,
-// }
+interface Data {
+  name: string,
+  keyWords: string[],
+  bidAmount:string ,
+  campainFound: string
+  status: boolean,
+  town?: string,
+  radius: string,
+}
