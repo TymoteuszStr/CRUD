@@ -1,72 +1,98 @@
-<form #ngForm="ngForm" (ngSubmit)="submit(ngForm)" autocomplete="off">
-    <input
+<form #ngForm="ngForm" (ngSubmit)="submit(ngForm)" autocomplete="off" role="form" >
+    <input 
         class="input"
-        [ngModel]="this.form.name" 
+        [class.isEmpty]="(name.invalid && ( name.touched)) || (!form.name && showErrMsg)"
+        [(ngModel)]="this.form.name" 
         name="name" 
         type="text" 
         required 
         placeholder="name"
+        #name="ngModel"
     >
-    <!-- <div *ngIf="name.oninvalid">*This field is required</div> -->
-    <!-- <input [ngModel]="this.form.keyWords" name="keyWords" type="text" required>  -->
+     <div *ngIf="(name.invalid && ( name.touched)) || (!form.name && showErrMsg)">*{{ name.name }} is required</div>
     <ng-select 
-        class="select custom " 
+        class="select custom" 
+        [class.isEmpty]="(keywords.invalid && ( keywords.touched)) || (!form.keyWords && showErrMsg)"
         name="keyWords"
-        [ngModel]="this.form.keyWords"
+        [(ngModel)]="this.form.keyWords"
         [ngModelOptions]="{standalone: false}"
         [items]="keyWords"
         bindLabel="name"
         placeholder="key words"
         [multiple]="true"
+        required 
+        bindValue="value"
+        #keywords="ngModel"
         >
         </ng-select>  
+        <div *ngIf="keywords.invalid && (keywords.dirty || keywords.touched) || (!form.keyWords && showErrMsg)">*{{ keywords.name }} is required</div>
+
 
     <input class="input"
-        [ngModel]="this.form.bidAmount" 
+        class="input"
+        [class.isEmpty]="(bidAmount.invalid && ( bidAmount.touched)) || (!form.bidAmount && showErrMsg)"
+        [(ngModel)]="this.form.bidAmount" 
         name="bidAmount" 
         type="text" 
         required 
         placeholder="bid amount"
+        #bidAmount="ngModel"
     > 
+    <div *ngIf="(bidAmount.invalid && ( bidAmount.touched)) || (!form.bidAmount && showErrMsg)">*{{ bidAmount.name }} is required</div>
+
     <input 
         class="input"
-        [ngModel]="this.form.campainFound" 
+        [class.isEmpty]="(campainFound.invalid && ( campainFound.touched)) || (!form.campainFound && showErrMsg)"
+        [(ngModel)]="this.form.campainFound" 
         name="campainFound" 
         type="text" 
-        required
-        placeholder="capain Found"
+        required 
+        placeholder="capain found"
+        #campainFound="ngModel"
     > 
+    <div *ngIf="(campainFound.invalid && ( campainFound.touched)) || (!form.campainFound && showErrMsg)">*{{ campainFound.name }} is required</div>
+
     <ng-select  
         class="select custom"
+        [class.isEmpty]="(status.invalid && ( status.touched)) || (!form.status && showErrMsg)"
         name="status"
-        [ngModel]="this.form.status"
+        [(ngModel)]="this.form.status"
         [ngModelOptions]="{standalone: false}"
-        [items]="status"
+        [items]="Status"
         bindLabel="name"
-        placeholder="Status"
+        placeholder="status"
         [multiple]="false"
         [searchable]="false"
+        #status="ngModel"
+        required
         >
     </ng-select>
+    <div *ngIf="status.invalid && (status.dirty || status.touched) || (!form.status && showErrMsg)">*{{ status.name }} is required</div>
+
     <ng-select 
         class="select custom"
         name="town"
-        [ngModel]="this.form.town"
+        [(ngModel)]="this.form.town"
         [ngModelOptions]="{standalone: false}"
         [items]="cities"
         bindLabel="name"
         placeholder="town"
         [multiple]="false"
+        class="select custom"
     >
     </ng-select>
     <input 
         class="input"
-        [ngModel]="this.form.radius" 
+        [class.isEmpty]="(radius.invalid && ( radius.touched)) || (!form.radius && showErrMsg)"
+        [(ngModel)]="this.form.radius" 
         name="radius" 
-        type="text"
-        placeholder="radius [km]"
+        type="text" 
+        required 
+        placeholder="radius"
+        #radius="ngModel"
     > 
+    <div *ngIf="(radius.invalid && ( radius.touched)) || (!form.radius && showErrMsg)">*{{ radius.name }} is required</div>
 
-    <button type="submit">ADD</button>
+    <button type="submit" >ADD</button>
     <button type="reset" >RESET</button>
 </form>

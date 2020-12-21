@@ -16,12 +16,22 @@
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
         }
-    
+
+}
+.isEmpty{
+    @extend .input;
+    border: 1px solid red;
+
 }
 
 .select{
     @extend .input;
     width:268px;
     height: 51px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 0;
+
     
 }

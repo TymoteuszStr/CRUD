@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { cities } from '../cities'
 import { keyWords } from '../keyWords'
 import { NgOption } from '@ng-select/ng-select';
+import { fakeAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-form',
@@ -16,7 +17,7 @@ export class FormComponent implements OnInit {
 
   cities = [...cities]
   keyWords = [...keyWords]
-  status =[
+  Status =[
     'ON',
     'OFF'
   ]
@@ -32,22 +33,30 @@ export class FormComponent implements OnInit {
     radius: null
   }
 
+  @ViewChild('ngForm', {read: NgForm})
+  ngForm!: NgForm;
+
+  isFormValid = (f:any):boolean => 
+    (f.name && f.keyWords && f.bidAmount && f.campainFound && f.status && f.radius)
+
   @Output()
   campainAdded = new EventEmitter()
 
-  submit(currentFormInputs:NgForm):void{
-    this.campainAdded.emit(currentFormInputs.value)
-    console.log(currentFormInputs.value)
+  resetForm = () => {
+   this.ngForm.onReset();
   }
 
-  
-  selectedKeyWords = [];
-  
-  onAdd = ($event: any): void => {
-    this.form.keyWords.push($event);
-    console.log(this.selectedKeyWords);
+  showErrMsg:boolean=false;
+
+  submit(currentFormInputs:NgForm):void{
+    if(this.isFormValid(this.form)){  
+      this.campainAdded.emit(currentFormInputs.value)
+      this.resetForm();
+      this.showErrMsg=false;
+    }
+    else this.showErrMsg=true;
   }
-  
+
   ngOnInit(): void {
   }
 

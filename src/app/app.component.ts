@@ -16,7 +16,6 @@ export class AppComponent {
     this.ListOfCampain.push(e)
   }
   
-
   editCampain = (e:any):void => {
       this.ListOfCampain.splice(this.editingIntex,1,e)
       this.editingIntex = null

@@ -1,8 +1,8 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-.ng-select.custom {
-
+.ng-select .custom {
+  display: flex;
 
     .ng-select-container {
         position: absolute;
@@ -14,9 +14,9 @@
         width:150px;
         height: 35px;
         background-color: white;
-        margin-left:8px;
-        margin-top:6px;
-        border:none;
+        // margin-left:8px;
+        // margin-top:6px;
+        border:none !important;
         box-shadow: none;
     
 
@@ -37,5 +37,6 @@
 
         }
       }
+
     }
   }
