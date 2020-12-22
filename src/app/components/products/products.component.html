@@ -1,0 +1,31 @@
+<div class="bar"></div>
+<div class="formWrapper">
+
+  <app-form  class="formWrapper"
+    [form]="CurrentFormInputs"
+    (campaignAdded)="submitBtnClicked($event)"
+    [BtnName]="mainBtnName"
+  >
+  </app-form>
+  
+</div>
+
+<div class="bar"></div>
+
+  <div class="accountWrapper">
+      <div class="accountItem">Product: {{productName}}</div>
+      <div class="accountItem">Emerald account: {{EmeraldAccount }} </div>
+  </div>
+
+  <div class="listwrapper">
+    <app-list
+       *ngFor="let campaign of ListOfCampaign; let i=index" 
+       [item]="campaign" 
+       [index]="i"
+       (editingCampaign)="setCampaignEditable($event)"
+       (deleteCampaign)="deleteCampaign($event)"
+       [class.isEditing]="(i===editingIntex)"
+    >
+    </app-list>
+  </div>
+

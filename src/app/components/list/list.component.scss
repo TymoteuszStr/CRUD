@@ -1,12 +1,44 @@
-.wrapper{
-    display:flex;
-    li,ul{
-        display:flex;
-        min-width:150px;
-        margin:0;
 
+
+.wrapper{
+    display:grid;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    grid-template-columns: .2fr .35fr .2fr .2fr .1fr .25fr .2fr .05fr .05fr;
+    grid-template-rows: 50px;    
+    align-items: center;
+    margin: 0 10%;
+    .box{
+        //text-align: center;
     }
-  button{
-        display:flex;
+   
 }
+
+
+
+.editBtn{
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #3a72da;
+    border: none;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 500;
 }
+.editBtn:hover{
+    cursor: pointer;
+    background-color: #4382f7;
+   
+
+}
+.deleteBtn{
+    @extend .editBtn;
+    background-color: #c24c4c;
+}
+.deleteBtn:hover{
+    cursor: pointer;
+    background-color: #fd6d6d;
+
+}
+

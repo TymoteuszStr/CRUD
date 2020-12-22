@@ -1,14 +1,43 @@
-<div class="wrapper">
-<app-form 
-  [form]="CurrentFormInputs"
-  (campainAdded)="submitBtnClicked($event)"
->
-</app-form>
 
-<app-list
-   *ngFor="let campain of ListOfCampain; let i=index" [item]="campain" [index]="i"
-   (editingCampain)="setCampainEditable($event)"
-   (deleteCampain)="deleteCampain($event)"
->
-</app-list>
-</div>
+  <div class="porductTabWrapper">
+    <div
+    class="productTab"
+    *ngFor="let prod of ListOfProduct; let i=index"
+    [class.activeProduct]="activeProduct===i"
+    (click)="changeProduct(i)"
+    > {{ListOfProduct[i].name}} 
+    <div (click)="deleteProduct(i)"class="xBtn">x</div>
+  </div>    
+    <div 
+      class="addProductBtn"
+      (click)="openModal()"
+      >
+      + 
+      </div>
+    </div>
+    
+    <form
+      class="modal"
+      *ngIf="modalVisible"
+      autocomplete="off"
+
+    >
+      <div class="xBtn" (click)="closeModal()">x</div>
+      <label for="prodName">Product name:</label>
+      <input name= "prodName" type="text" [(ngModel)]="newProductName">
+      <label for="prodAccount">Emeraland account amount:</label>
+      <input name= "prodAccount"type="number" [(ngModel)]="newAccountVal" >
+      <button type="submit"  (click)="addProduct()">Add new product</button>
+    </form>
+    
+  <div 
+    [class.productWrapper]="modalVisible">
+    <app-products 
+    *ngFor="let prod of ListOfProduct; let i=index"
+    [hidden]="(activeProduct !==i)"
+    [emeraldAccountStart]="ListOfProduct[i].account"
+    [productName]="ListOfProduct[i].name"
+    ></app-products>       
+  </div>
+
+ 

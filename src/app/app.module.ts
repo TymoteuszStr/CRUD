@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
 import { ListComponent } from './components/list/list.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ProductsComponent } from './components/products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ListComponent,
+    ProductsComponent,
     
   ],
   imports: [

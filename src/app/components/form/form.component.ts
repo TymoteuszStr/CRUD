@@ -4,6 +4,7 @@ import { cities } from '../cities'
 import { keyWords } from '../keyWords'
 import { NgOption } from '@ng-select/ng-select';
 import { fakeAsync } from '@angular/core/testing';
+import { findLast } from '@angular/compiler/src/directive_resolver';
 
 @Component({
   selector: 'app-form',
@@ -22,12 +23,15 @@ export class FormComponent implements OnInit {
     'OFF'
   ]
   @Input()
+  BtnName:string
+
+  @Input()
   form:Data = 
   {
     name: null,
     keyWords: null,
     bidAmount: null,
-    campainFound: null,
+    campaignFound: null,
     status: null,
     town: null,
     radius: null
@@ -37,10 +41,10 @@ export class FormComponent implements OnInit {
   ngForm!: NgForm;
 
   isFormValid = (f:any):boolean => 
-    (f.name && f.keyWords && f.bidAmount && f.campainFound && f.status && f.radius)
+    (f.name && f.keyWords && f.bidAmount && f.campaignFound && f.status && f.radius)
 
   @Output()
-  campainAdded = new EventEmitter()
+  campaignAdded = new EventEmitter()
 
   resetForm = () => {
    this.ngForm.onReset();
@@ -50,7 +54,7 @@ export class FormComponent implements OnInit {
 
   submit(currentFormInputs:NgForm):void{
     if(this.isFormValid(this.form)){  
-      this.campainAdded.emit(currentFormInputs.value)
+      this.campaignAdded.emit(currentFormInputs.value)
       this.resetForm();
       this.showErrMsg=false;
     }
@@ -65,8 +69,8 @@ interface Data {
   name: string,
   keyWords: string[],
   bidAmount:string ,
-  campainFound: string
-  status: boolean,
+  campaignFound: string
+  status: string,
   town?: string,
   radius: string,
 }

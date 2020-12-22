@@ -5,56 +5,46 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-
+export class AppComponent{
+  
   title = 'CRUD';
-  editingIntex:number = null;
 
-  
-  
-  addCampain = (e:any):void =>{
-    this.ListOfCampain.push(e)
-  }
-  
-  editCampain = (e:any):void => {
-      this.ListOfCampain.splice(this.editingIntex,1,e)
-      this.editingIntex = null
-  }
-  deleteCampain = (e:number):void => {
-      this.ListOfCampain.splice(e,1)
-      this.editingIntex = null
+  activeProduct=0;
+
+  modalVisible=false
+  newProductName=''
+  newAccountVal:number =null
+
+  changeProduct=(nr:number)=>{
+    this.activeProduct=nr;
   }
 
-  submitBtnClicked = (e:Data):void =>{
-    (this.editingIntex === null)? this.addCampain(e) : this.editCampain(e) 
+  openModal(){
+    this.modalVisible=true
   }
-  
-  setCampainEditable = (editingCampain:any):void =>{
-    this.CurrentFormInputs = (editingCampain[0])
-    this.editingIntex=editingCampain[1]
+  closeModal = ()=>{
+    this.modalVisible=false
   }
 
-  CurrentFormInputs:Data =
-  {
-    name: null,
-    keyWords: null,
-    bidAmount: null,
-    campainFound: null,
-    status: null,
-    town: null,
-    radius: null,
+  addProduct = () =>{
+    this.ListOfProduct.push({
+      name: this.newProductName,
+      account: this.newAccountVal,
+    })
+    this.closeModal()
+    this.changeProduct(this.ListOfProduct.length-1)
   }
-  ListOfCampain = [
+
+  deleteProduct = (e) =>{
+    this.ListOfProduct.splice(e,1)
+    this.changeProduct(this.ListOfProduct.length-1)
+  }
+
+  ListOfProduct = [
+    {
+      name:'Product 1',
+      account: 10000000,
+    },    
   ]
- 
-}
 
-interface Data {
-  name: string,
-  keyWords: string[],
-  bidAmount:string ,
-  campainFound: string
-  status: boolean,
-  town?: string,
-  radius: string,
 }

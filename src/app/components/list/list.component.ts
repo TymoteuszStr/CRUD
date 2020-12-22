@@ -10,6 +10,10 @@ export class ListComponent implements OnInit {
   constructor() { 
     
   }
+
+  @Input()
+  isEditing:boolean = false;
+
   @Input()
   index:any
  
@@ -19,25 +23,26 @@ export class ListComponent implements OnInit {
     name: null,
     keyWords: null,
     bidAmount: null,
-    campainFound: null,
-    status: true,
+    campaignFound: null,
+    status: null,
     town: null,
     radius: null
   }
 
  
   @Output()
-  editingCampain = new EventEmitter()
+  editingCampaign = new EventEmitter()
   
   @Output()
-  deleteCampain = new EventEmitter()
+  deleteCampaign = new EventEmitter()
 
   delete = ():void=>{
-    this.deleteCampain.emit(this.index)
+    this.deleteCampaign.emit(this.index)
+    this.isEditing=true;
   }
 
   edit = ():void =>{
-    this.editingCampain.emit([this.item, this.index])
+    this.editingCampaign.emit([this.item, this.index])
   }
 
   ngOnInit(): void {

@@ -1,14 +1,14 @@
 
 <div class="wrapper">
-<ul>
-    <li> {{ item.name}}  </li>
-    <li> {{ item.keyWords}}  </li>
-    <li> {{ item.bidAmount}}  </li>
-    <li> {{ item.campainFound}}  </li>
-    <li> {{ item.status}}  </li>
-    <li> {{ item.town}}  </li>
-    <li> {{ item.radius}}  </li>
-</ul>
-    <button (click)="edit()">EDIT</button> 
-    <button (click)="delete()">DEL</button>
-<div>
+    <div class="box"> {{ item.name}}   </div>  
+    <div class="box"> {{ item.keyWords}}  </div>   
+    <div class="box"> {{ item.bidAmount}}   </div>
+    <div class="box"> {{ item.campaignFound}}  </div>
+    <div class="box"> {{ item.status}}  </div>
+    <div class="box"> {{ item.town}}  </div>
+    <div class="box"> {{ item.radius}}  </div>
+    
+    <button class="editBtn"(click)="edit()"><i class="far fa-edit"></i></button> 
+    <button class="deleteBtn"(click)="delete()"><i class="far fa-trash-alt"></i></button>
+</div>
+
