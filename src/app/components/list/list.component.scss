@@ -79,7 +79,7 @@ label{
         margin-left: 60px;
     }
     .editBtn,.deleteBtn{
-        width: 100px;
+        width: 50px;
     }
 }
 
@@ -97,6 +97,9 @@ label{
     .header{
         letter-spacing: 0;
         font-size: 18px;
+    }
+    .editBtn,.deleteBtn{
+        width: 100px;
     }
 }
 
