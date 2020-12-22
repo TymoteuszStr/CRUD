@@ -4,7 +4,7 @@
     display:grid;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    grid-template-columns: .2fr .35fr .2fr .2fr .1fr .25fr .2fr .05fr .05fr;
+    grid-template-columns: 1fr  1fr 1fr 1fr 1fr  1fr 1fr  1fr  1fr;
     grid-template-rows: 50px;    
     align-items: center;
     margin: 0 10%;
@@ -13,8 +13,6 @@
     }
    
 }
-
-
 
 .editBtn{
     width: 40px;
@@ -30,8 +28,8 @@
     cursor: pointer;
     background-color: #4382f7;
    
-
 }
+
 .deleteBtn{
     @extend .editBtn;
     background-color: #c24c4c;
@@ -41,4 +39,32 @@
     background-color: #fd6d6d;
 
 }
+label{
+    display: none;
+}
 
+@media screen and (max-width:678px){
+   
+    label{
+        display: block;
+        font-weight: 500;
+        
+    }
+.wrapper{
+    display:grid;
+    font-size: .9rem;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr  1fr 1fr  1fr;    
+    text-align: start;
+    margin: 20px 0;
+}
+
+}
+
+@media screen and (max-width:1600px){
+    .editBtn{
+        width: 30px;
+        height: 30px;
+        margin:2px;
+    }
+}

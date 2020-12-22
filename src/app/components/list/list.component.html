@@ -1,11 +1,18 @@
 
 <div class="wrapper">
-    <div class="box"> {{ item.name}}   </div>  
+    <label> Name: </label>  
+    <div class="box"> {{ item.name}}   </div>
+    <label> Key wodrs: </label>    
     <div class="box"> {{ item.keyWords}}  </div>   
+    <label> Bid amount: </label>  
     <div class="box"> {{ item.bidAmount}}   </div>
+    <label> Campaing found: </label>  
     <div class="box"> {{ item.campaignFound}}  </div>
+    <label> status: </label>  
     <div class="box"> {{ item.status}}  </div>
+    <label> Town: </label>  
     <div class="box"> {{ item.town}}  </div>
+    <label> Radius: </label>  
     <div class="box"> {{ item.radius}}  </div>
     
     <button class="editBtn"(click)="edit()"><i class="far fa-edit"></i></button> 

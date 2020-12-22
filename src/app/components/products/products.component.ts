@@ -75,7 +75,15 @@ export class ProductsComponent implements OnInit {
     town: null,
     radius: null,
   }
-  ListOfCampaign = []
+  ListOfCampaign = [{
+    name: 'null',
+    keyWords: ', asdas, ,adfssdf ,sd sdf ,sdf sdf ,dfs d dsf,',
+    bidAmount: 123,
+    campaignFound: 29234,
+    status: "OFF",
+    town: "krakow",
+    radius: 123124,
+  }]
  
 }
 

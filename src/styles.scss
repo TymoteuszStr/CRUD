@@ -1,6 +1,12 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
+
+
 .ng-select .ng-select-container {
         
     input{
@@ -15,6 +21,10 @@
         margin: 0!important;
         min-width: 200px;
 
+    }
+
+    &:hover{
+        cursor: text;
     }
 }
 

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -43,6 +42,7 @@ export class ListComponent implements OnInit {
 
   edit = ():void =>{
     this.editingCampaign.emit([this.item, this.index])
+    window.scroll(0,0);
   }
 
   ngOnInit(): void {
