@@ -20,26 +20,22 @@
     justify-content: center;
     background-color: #3a72da1f;
     box-shadow: 0 10px 40px -15px rgba(#818181, .5);
+    animation: showUp .3s ease-out;
 
     input{
         width: 80%;
         height: 30px;
         font-size: 18px;
         font-family: 'Roboto', sans-serif;
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-        }
-        &[type=number] {
-            -moz-appearance: textfield;
-          }
+        animation: showUp2 .6s ease-in;
 
     }
     label{
         font-size: 20px;
         color: #303030;
         margin: 10px 0; 
+        animation: showUp2 .6s ease-in;
+
     }
 
     button{
@@ -175,3 +171,21 @@
     }
       
 }
+
+@keyframes showUp {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 300px;
+    }
+  }
+
+  @keyframes showUp2 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }

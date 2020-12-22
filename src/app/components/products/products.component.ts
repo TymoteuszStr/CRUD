@@ -1,3 +1,4 @@
+import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -30,12 +31,14 @@ export class ProductsComponent implements OnInit {
   
    
   updateAccountValue = () =>{
-    (this.ListOfCampaign.length === 0)? 
-       this.EmeraldAccount = this.emeraldAccountStart 
-    :
+   if(this.ListOfCampaign.length === 0)  this.EmeraldAccount = this.emeraldAccountStart 
+    else{
+      let sum = 0;
       this.ListOfCampaign.forEach((item:any)=>{
-       this.EmeraldAccount= this.emeraldAccountStart - Number(item.campaignFound)
+        sum+= Number(item.campaignFound)
        })
+       this.EmeraldAccount = this.emeraldAccountStart - sum;
+    }
     
   } 
   addCampaign = (e:any):void =>{
@@ -75,16 +78,7 @@ export class ProductsComponent implements OnInit {
     town: null,
     radius: null,
   }
-  ListOfCampaign = [{
-    name: 'null',
-    keyWords: ', asdas, ,adfssdf ,sd sdf ,sdf sdf ,dfs d dsf,',
-    bidAmount: 123,
-    campaignFound: 29234,
-    status: "OFF",
-    town: "krakow",
-    radius: 123124,
-  }]
- 
+  ListOfCampaign = []
 }
 
 interface Data {

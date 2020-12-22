@@ -1,39 +1,41 @@
-
-  <div class="porductTabWrapper">
-    <div
-    class="productTab"
-    *ngFor="let prod of ListOfProduct; let i=index"
-    [class.activeProduct]="activeProduct===i"
-    (click)="changeProduct(i)"
-    > {{ListOfProduct[i].name}} 
-    <div (click)="deleteProduct(i)"class="xBtn">x</div>
-  </div>    
+<div class="header">
+    <div class="porductTabWrapper">
+      <div
+        class="productTab"
+        *ngFor="let prod of ListOfProduct; let i=index"
+        [class.activeProduct]="activeProduct===i"
+        (click)="changeProduct(i)"
+      > 
+        {{ListOfProduct[i].name}} 
+      <div (click)="deleteProduct(i)"class="xBtn">&#10799;</div>
+    </div>    
     <div 
       class="addProductBtn"
       (click)="openModal()"
-      >
-      + 
-      </div>
-    </div>
-    
-    <form
-      class="modal"
-      *ngIf="modalVisible"
-      autocomplete="off"
-
     >
-      <div class="xBtn" (click)="closeModal()">x</div>
-      <label for="prodName">Product name:</label>
-      <input name= "prodName" type="text" [(ngModel)]="newProductName">
-      <label for="prodAccount">Emeraland account amount:</label>
-      <input name= "prodAccount"type="number" [(ngModel)]="newAccountVal">
-      <button type="submit"  (click)="addProduct()">Add new product</button>
-    </form>
-    
-  <div 
-    [class.productWrapper]="modalVisible">
-    <app-products 
-    *ngFor="let prod of ListOfProduct; let i=index"
+      + 
+    </div>
+  </div>
+
+  <form
+    class="modal"
+    *ngIf="modalVisible"
+    autocomplete="off"
+
+  >
+  <div class="xBtn" (click)="closeModal()">&#10799;</div>
+  <label for="prodName">Product name:</label>
+  <input name= "prodName" type="text" [(ngModel)]="newProductName">
+  <label for="prodAccount">Emeraland account amount:</label>
+  <input name= "prodAccount"type="text" [(ngModel)]="newAccountVal" appOnlyNumber>
+  <button type="submit"  (click)="addProduct()">Add new product</button>
+  </form>
+</div>
+
+<div 
+[class.productWrapper]="modalVisible">
+<app-products 
+*ngFor="let prod of ListOfProduct; let i=index"
     [hidden]="(activeProduct !==i)"
     [emeraldAccountStart]="ListOfProduct[i].account"
     [productName]="ListOfProduct[i].name"

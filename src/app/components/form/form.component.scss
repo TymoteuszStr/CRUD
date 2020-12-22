@@ -1,7 +1,4 @@
 
-:host{
-    overflow: hidden;
-}
 .wrapper{
     width: 90%;
     font-family: 'Roboto', sans-serif;
@@ -13,21 +10,29 @@
     padding-right: 5vw; 
     margin-top:2px;
     display: flex;
-    overflow: hidden;
+    animation: popUp .3s ease-in;
+    animation: showUp2 .3s ease-in;
+
 
 }
 input { outline: none; 
     min-width: 50px;
 }
 .formItem{
+    position: relative;
     border-right: 1px solid lightgrey;
     min-width: 160px;
 
     &:first-child{
         border-left: 1px solid lightgrey;
-
     }
-
+    span{
+        position: absolute;
+        top: 17px;
+        right: 10px;
+        color: #303030;
+        font-weight: 500;
+    }
 }
 .input{
     min-width: 100px;
@@ -48,8 +53,6 @@ input { outline: none;
 }
 .isEmpty{
     @extend .input;
-   // border: 1px solid red;
-
 }
 .select{
     @extend .input;  
@@ -58,7 +61,7 @@ input { outline: none;
 }
 
 .submitBtn{
-    width: 120px;
+    min-width: 120px;
     height: 40px;
     border-radius: 5px;
     background-color:#1e58ff;
@@ -67,6 +70,7 @@ input { outline: none;
     font-size: 13px;
     font-weight: 600;
     margin-left: 10px;
+    z-index: 100;
 }
 .submitBtn:hover{
     cursor: pointer;
@@ -115,6 +119,9 @@ input { outline: none;
             border-left: none;
     
         }
+        span{
+            right: 200px;
+        }
     
     }
     .submitBtn{
@@ -125,3 +132,12 @@ input { outline: none;
     }
 
 }
+
+@keyframes popUp {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 40px;
+    }
+  }

@@ -5,8 +5,9 @@
     margin-right: auto;
 
 }
+
 .listwrapper{
-    width: 80vw;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -18,20 +19,24 @@
 
 
 .bar{
-    width: 85%;
+    width: 84%;
     height:3px;
     background-color:  #3a72da;
     margin: 30px auto;
 
     &:first-child{
-        margin-top:0
+        margin-top:0;
     }
+    &:last-child{
+        display: none;
+    }
+    
 }
 
 .accountWrapper{
     width: 100%;
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     align-items: space-between;
        
 }
@@ -43,6 +48,12 @@
         font-size: 20px;
         margin-left: auto;
         margin-right: auto;
+
+        &:last-child{
+            &::after{
+                content:'$';
+            }
+        }
     }
 
     

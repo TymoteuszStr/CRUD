@@ -15,7 +15,7 @@
             required 
             placeholder="Name"
             #name="ngModel"
-        >
+        > 
         <div  class="label" *ngIf="(name.invalid && ( name.touched)) || (!form.name && showErrMsg)">*{{ name.name }} is required</div>
     </div>
     
@@ -50,8 +50,9 @@
             required 
             placeholder="Bid Amount"
             #bidAmount="ngModel"
+            appOnlyNumber
         > 
-
+        <span>$</span>
         <div  class="label" *ngIf="(bidAmount.invalid && ( bidAmount.touched)) || (!form.bidAmount && showErrMsg)">*{{ bidAmount.name }} is required</div>
     </div>
     <div class="formItem">
@@ -63,8 +64,12 @@
         type="text" 
         required 
         placeholder="Campaign found"
+        [maxLength]=17
         #campaignFound="ngModel"
+        appOnlyNumber
     > 
+    <span>$</span>
+
 
     <div  class="label" *ngIf="(campaignFound.invalid && ( campaignFound.touched)) || (!form.campaignFound && showErrMsg)">*{{ campaignFound.name }} is required</div>
     </div>
@@ -114,9 +119,11 @@
             type="text" 
             required 
             placeholder="Radius"
+            [maxLength]=17
             #radius="ngModel"
+            appOnlyNumber
         > 
-
+        <span>km</span>
         <div class="label" *ngIf="(radius.invalid && ( radius.touched)) || (!form.radius && showErrMsg)">*{{ radius.name }} is required</div>
     </div>  
     

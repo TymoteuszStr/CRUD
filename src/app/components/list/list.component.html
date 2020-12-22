@@ -1,21 +1,21 @@
 
-<div class="wrapper">
+<div class="{{(header)? 'header':'wrapper'}}" >
     <label> Name: </label>  
-    <div class="box"> {{ item.name}}   </div>
+    <div> {{ item.name}}   </div>
     <label> Key wodrs: </label>    
-    <div class="box"> {{ item.keyWords}}  </div>   
+    <div> {{ item.keyWords}}  </div>   
     <label> Bid amount: </label>  
-    <div class="box"> {{ item.bidAmount}}   </div>
+    <div> {{ item.bidAmount}}   </div>
     <label> Campaing found: </label>  
-    <div class="box"> {{ item.campaignFound}}  </div>
+    <div> {{ item.campaignFound}}  </div>
     <label> status: </label>  
-    <div class="box"> {{ item.status}}  </div>
+    <div> {{ item.status}}  </div>
     <label> Town: </label>  
-    <div class="box"> {{ item.town}}  </div>
+    <div> {{ item.town}}  </div>
     <label> Radius: </label>  
-    <div class="box"> {{ item.radius}}  </div>
+    <div> {{ item.radius}}  </div>
     
-    <button class="editBtn"(click)="edit()"><i class="far fa-edit"></i></button> 
-    <button class="deleteBtn"(click)="delete()"><i class="far fa-trash-alt"></i></button>
+    <button class="editBtn"(click)="edit()" [hidden]="header"><i class="far fa-edit"></i></button> 
+    <button class="deleteBtn"(click)="delete()" [hidden]="header"><i class="far fa-trash-alt"></i></button>
 </div>
 

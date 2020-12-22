@@ -15,7 +15,9 @@ export class ListComponent implements OnInit {
 
   @Input()
   index:any
- 
+  @Input()
+  header?=false
+  
   @Input()
   item = 
   {
