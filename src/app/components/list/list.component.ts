@@ -14,7 +14,8 @@ export class ListComponent implements OnInit {
   isEditing:boolean = false;
 
   @Input()
-  index:any
+  index:number
+  
   @Input()
   header?=false
   

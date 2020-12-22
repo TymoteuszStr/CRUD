@@ -46,7 +46,7 @@ export class FormComponent implements OnInit {
   @Output()
   campaignAdded = new EventEmitter()
 
-  resetForm = () => {
+  resetForm = ():void => {
    this.ngForm.onReset();
   }
 
